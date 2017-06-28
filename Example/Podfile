@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FunkyPlayerService_Example' do
+  pod 'FunkyPlayerService', :path => '../'
+
+  target 'FunkyPlayerService_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
