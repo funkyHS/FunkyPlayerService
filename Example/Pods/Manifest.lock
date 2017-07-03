@@ -1,0 +1,22 @@
+PODS:
+  - FunkyPlayerService (0.1.0):
+    - FunkyPlayerService/LocalPlayer (= 0.1.0)
+    - FunkyPlayerService/PlayerService (= 0.1.0)
+    - FunkyPlayerService/RemotePlayer (= 0.1.0)
+  - FunkyPlayerService/LocalPlayer (0.1.0)
+  - FunkyPlayerService/PlayerService (0.1.0)
+  - FunkyPlayerService/RemotePlayer (0.1.0)
+
+DEPENDENCIES:
+  - FunkyPlayerService (from `../`)
+
+EXTERNAL SOURCES:
+  FunkyPlayerService:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FunkyPlayerService: 669795a13d786e0409707f9123d6b90ae9898736
+
+PODFILE CHECKSUM: c1a05307426d38869c6ab7cf81749c1560e8ccd0
+
+COCOAPODS: 1.2.1

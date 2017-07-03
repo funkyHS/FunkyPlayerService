@@ -37,8 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18D5C9612EF6B063744600F4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		47456E3AEEEDDF22FF13DFFC /* FunkyPlayerService.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = FunkyPlayerService.podspec; path = ../FunkyPlayerService.podspec; sourceTree = "<group>"; };
+		18D5C9612EF6B063744600F4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		47456E3AEEEDDF22FF13DFFC /* FunkyPlayerService.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FunkyPlayerService.podspec; path = ../FunkyPlayerService.podspec; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* FunkyPlayerService_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunkyPlayerService_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -66,7 +66,7 @@
 		C436D1DC4B7E8B81A9B4839A /* Pods-FunkyPlayerService_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunkyPlayerService_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunkyPlayerService_Example/Pods-FunkyPlayerService_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CA14307BE009750365D23216 /* Pods-FunkyPlayerService_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunkyPlayerService_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunkyPlayerService_Tests/Pods-FunkyPlayerService_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E5F3C3C9827809EB8B9679F9 /* Pods_FunkyPlayerService_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunkyPlayerService_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F754F4B92F739648A3EA6A48 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F754F4B92F739648A3EA6A48 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
