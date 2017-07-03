@@ -19,11 +19,11 @@ TODO:FunkyPlayerService提供本地资源或远程资源的音频播放功能组
 
 
 s.subspec 'LocalPlayer' do |sb|
-    sb.source_files = 'FunkyFMBase/Classes/LocalPlayer/**/*'
+    sb.source_files = 'FunkyPlayerService/Classes/LocalPlayer/**/*'
 end
 
 s.subspec 'RemotePlayer' do |sb|
-    sb.source_files = 'FunkyFMBase/Classes/RemotePlayer/**/*'
+    sb.source_files = 'FunkyPlayerService/Classes/RemotePlayer/**/*'
 end
 
 s.subspec 'PlayerService' do |sb|
