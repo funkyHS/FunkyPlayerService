@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FunkyPlayerService'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'FunkyPlayerService'
 
   s.description      = <<-DESC
@@ -27,7 +27,10 @@ s.subspec 'RemotePlayer' do |sb|
 end
 
 s.subspec 'PlayerService' do |sb|
-    sb.source_files = 'FunkyPlayerService/Classes/**/*'
+    sb.source_files = 'FunkyPlayerService/Classes/PlayerService/**/*'
+    sb.dependency 'FunkyPlayerService/LocalPlayer'
+    sb.dependency 'FunkyPlayerService/RemotePlayer'
+
 end
 
 
