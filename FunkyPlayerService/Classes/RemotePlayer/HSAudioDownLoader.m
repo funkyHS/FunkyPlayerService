@@ -35,10 +35,11 @@
 }
 
 - (void)downLoadWithURL:(NSURL *)url offset:(long long)offset {
-    [self cancelAndClean];
     
     self.url = url;
     self.offset = offset;
+    
+    [self cancelAndClean];
     
     // 请求的是某一个区间的数据 Range
     // NSURLRequestReloadIgnoringLocalCacheData 忽略本地缓存数据
