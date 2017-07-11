@@ -29,13 +29,19 @@
      <AVAssetResourceLoadingRequest: 0x61800001e9c0, URL request = <NSMutableURLRequest: 0x61800001e810> { URL: sreaming://audio.xmcdn.com/group23/M04/63/C5/wKgJNFg2qdLCziiYAGQxcTOSBEw402.m4a }, request ID = 1, content information request = <AVAssetResourceLoadingContentInformationRequest: 0x61800001e860, content type = "(null)", content length = 0, byte range access supported = NO, disk caching permitted = NO, renewal date = (null)>, data request = <AVAssetResourceLoadingDataRequest: 0x61800001e870, requested offset = 0, requested length = 2, requests all data to end of resource = NO, current offset = 0>>
      */
     
+    // 记录所有的请求
+    [self.loadingRequests addObject:loadingRequest];
+    
     
     NSURL *url = [loadingRequest.request.URL httpURL];
-    long long requestOffset = loadingRequest.dataRequest.requestedOffset;
-    long long currentOffset = loadingRequest.dataRequest.currentOffset;
-    if (requestOffset != currentOffset) {
-        requestOffset = currentOffset;
-    }
+    
+    AVAssetResourceLoadingRequest *firstLoading = self.loadingRequests.firstObject;
+    long long requestOffset = firstLoading.dataRequest.currentOffset;
+//    long long requestOffset = loadingRequest.dataRequest.requestedOffset;
+//    long long currentOffset = loadingRequest.dataRequest.currentOffset;
+//    if (requestOffset != currentOffset) {
+//        requestOffset = currentOffset;
+//    }
     
     // 1. 判断本地有没有该音频资源的缓存文件, 如果有 -> 直接根据本地缓存, 向外界响应数据(3个步骤) return
     if ([HSRemoteAudioFile cacheFileExists:url]) {
@@ -43,8 +49,7 @@
         return YES;
     }
     
-    // 记录所有的请求
-    [self.loadingRequests addObject:loadingRequest];
+    
 
 
     
@@ -92,49 +97,47 @@
 - (void)handleAllLoadingRequest {
     //    NSLog(@"在这里不断的处理请求");
     //NSLog(@"-----%@", self.loadingRequests);
-    NSMutableArray *deleteRequests = [NSMutableArray array];
-    for (AVAssetResourceLoadingRequest *loadingRequest in self.loadingRequests) {
-        // 1. 填充内容信息头
-        NSURL *url = loadingRequest.request.URL;
-        long long totalSize = self.downLoader.totalSize;
-        loadingRequest.contentInformationRequest.contentLength = totalSize;
-        NSString *contentType = self.downLoader.mimeType;
-        loadingRequest.contentInformationRequest.contentType = contentType;
-        loadingRequest.contentInformationRequest.byteRangeAccessSupported = YES;
-        
-        // 2. 填充数据
-        NSData *data = [NSData dataWithContentsOfFile:[HSRemoteAudioFile tmpFilePath:url] options:NSDataReadingMappedIfSafe error:nil];
-        if (data == nil) {
-            // 如果从临时文件找不到，就从缓存文件中取！
-            data = [NSData dataWithContentsOfFile:[HSRemoteAudioFile cacheFilePath:url] options:NSDataReadingMappedIfSafe error:nil];
-        }
-        
-        long long requestOffset = loadingRequest.dataRequest.requestedOffset;
-        long long currentOffset = loadingRequest.dataRequest.currentOffset;
-        if (requestOffset != currentOffset) {
-            requestOffset = currentOffset;
-        }
-        NSInteger requestLength = loadingRequest.dataRequest.requestedLength;
-        
-        
-        long long responseOffset = requestOffset - self.downLoader.offset;
-        long long responseLength = MIN(self.downLoader.offset + self.downLoader.loadedSize - requestOffset, requestLength) ;
-        
-        NSData *subData = [data subdataWithRange:NSMakeRange(responseOffset, responseLength)];
-        
-        [loadingRequest.dataRequest respondWithData:subData];
-        
-        
-        
-        // 3. 完成请求(必须把所有的关于这个请求的区间数据, 都返回完之后, 才能完成这个请求)
-        if (requestLength == responseLength) {
-            [loadingRequest finishLoading];
-            [deleteRequests addObject:loadingRequest];
-        }
-        
+    
+    AVAssetResourceLoadingRequest *loadingRequest = self.loadingRequests.firstObject;
+    // 1. 填充内容信息头
+    NSURL *url = loadingRequest.request.URL;
+    long long totalSize = self.downLoader.totalSize;
+    loadingRequest.contentInformationRequest.contentLength = totalSize;
+    NSString *contentType = self.downLoader.mimeType;
+    loadingRequest.contentInformationRequest.contentType = contentType;
+    loadingRequest.contentInformationRequest.byteRangeAccessSupported = YES;
+    
+    // 2. 填充数据
+    NSData *data = [NSData dataWithContentsOfFile:[HSRemoteAudioFile tmpFilePath:url] options:NSDataReadingMappedIfSafe error:nil];
+    if (data == nil) {
+        // 如果从临时文件找不到，就从缓存文件中取！
+        data = [NSData dataWithContentsOfFile:[HSRemoteAudioFile cacheFilePath:url] options:NSDataReadingMappedIfSafe error:nil];
     }
     
-    [self.loadingRequests removeObjectsInArray:deleteRequests];
+    //long long requestOffset = loadingRequest.dataRequest.requestedOffset;
+    long long currentOffset = loadingRequest.dataRequest.currentOffset;
+    //        if (requestOffset != currentOffset) {
+    //            requestOffset = currentOffset;
+    //        }
+    NSInteger requestLength = loadingRequest.dataRequest.requestedLength;
+    
+    
+    long long responseOffset = currentOffset - self.downLoader.offset;
+    long long responseLength = MIN(self.downLoader.offset + self.downLoader.loadedSize - currentOffset, requestLength) ;
+    
+    NSData *subData = [data subdataWithRange:NSMakeRange(responseOffset, responseLength)];
+    
+    [loadingRequest.dataRequest respondWithData:subData];
+    
+    
+    
+    // 3. 完成请求(必须把所有的关于这个请求的区间数据, 都返回完之后, 才能完成这个请求)
+    if (requestLength == responseLength) {
+        [loadingRequest finishLoading];
+        [self.loadingRequests removeObject:loadingRequest];
+    }
+    
+    
     
 }
 

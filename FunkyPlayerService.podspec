@@ -1,11 +1,12 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FunkyPlayerService'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'FunkyPlayerService'
 
   s.description      = <<-DESC
-TODO:FunkyPlayerService提供本地资源或远程资源的音频播放功能组件
+TODO:FunkyPlayerService提供本地资源或远程资源的音频播放功能组件，支付边听边缓存"
+
                        DESC
 
   s.homepage         = 'https://github.com/funkyHS/FunkyPlayerService'
