@@ -41,7 +41,7 @@
 @property (nonatomic, assign) float rate;
 
 //播放进度
-@property (nonatomic, assign, readonly) float progress;
+@property (nonatomic, assign) float progress;
 
 // 远程资源缓存进度
 @property (nonatomic, assign, readonly) float loadDataProgress;
@@ -62,15 +62,11 @@
 // 如果是远程资源文件，并且请求到了完整的资源路径 默认缓存到本地
 - (void)playWithURL:(NSURL *)url withStateBlock: (void(^)(HSRemotePlayerState state))stateBlock;
 
-
 // 播放
 - (void)playCurrentAudio;
 
 // 暂停
 - (void)pauseCurrentAudio;
-
-// 拖动进度条的进度
-- (void)seekWithProgress: (float)progress;
 
 // 快进/快退 timeDiffer 秒 为负值时快退
 - (void)seekWithTimeDiffer:(NSTimeInterval)timeDiffer;

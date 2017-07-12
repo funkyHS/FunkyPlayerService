@@ -25,19 +25,18 @@
 // 快进/快退 timeDiffer 秒 为负值时快退
 - (void)seekWithTimeDiffer:(NSTimeInterval)timeDiffer;
 
-// 拖动进度条的进度
-- (void)seekWithProgress:(float)progress;
-
 
 #pragma mark - 数据提供
 
-@property (nonatomic, assign, readonly) BOOL isPlaying;
 
 // 声音大小
 @property (nonatomic, assign) float volume;
 
 // 倍速
 @property (nonatomic, assign) float rate;
+
+//播放进度
+@property (nonatomic, assign) float progress;
 
 //总时长
 @property (nonatomic, assign, readonly) NSTimeInterval totalTime;
@@ -47,7 +46,6 @@
 @property (nonatomic, assign, readonly) NSTimeInterval currentTime;
 @property (nonatomic, copy, readonly) NSString *currentTimeFormat;
 
-//播放进度
-@property (nonatomic, assign, readonly) float progress;
+@property (nonatomic, assign, readonly) BOOL isPlaying;
 
 @end

@@ -113,16 +113,6 @@ static HSPlayerService *_shareInstance;
     return [NSString stringWithFormat:@"%02zd:%02zd", (int)self.currentTime / 60, (int)self.currentTime % 60];
 }
 
-// 拖动进度条的进度
-- (void)seekWithProgress: (float)progress {
-    
-    if (_isRemoteURL) {
-        [self.remoteAudioTool seekWithProgress:progress];
-    }else {
-        [self.localAudioTool seekWithProgress:progress];
-    }
-    
-}
 
 // 快进/快退 timeDiffer 秒 为负值时快退
 - (void)seekWithTimeDiffer:(NSTimeInterval)timeDiffer {
@@ -156,7 +146,13 @@ static HSPlayerService *_shareInstance;
     return _isRemoteURL ? self.remoteAudioTool.volume : self.localAudioTool.volume;
 }
 
-
+-(void)setProgress:(float)progress {
+    if (_isRemoteURL) {
+        self.remoteAudioTool.progress = progress;
+    }else {
+        self.localAudioTool.progress = progress;
+    }
+}
 // 播放进度
 - (float)progress {
     if (self.totalTime == 0) {
@@ -192,8 +188,7 @@ static HSPlayerService *_shareInstance;
     return _localAudioTool;
 }
 
-- (HSRemotePlayer *)remoteAudioTool
-{
+- (HSRemotePlayer *)remoteAudioTool {
     if (!_remoteAudioTool) {
         _remoteAudioTool = [[HSRemotePlayer alloc] init];
     }

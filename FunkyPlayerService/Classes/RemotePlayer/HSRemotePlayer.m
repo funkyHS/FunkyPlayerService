@@ -44,7 +44,9 @@ static HSRemotePlayer *_shareInstance;
     return _shareInstance;
 }
 
-- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache stateBlock:(StateChangeType)stateChange {
+
+
+- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache stateBlock:(void(^)(HSRemotePlayerState state))stateChange {
     
     self.stateChange = stateChange;
     [self playWithURL:url isCache:isCache];
@@ -54,7 +56,7 @@ static HSRemotePlayer *_shareInstance;
 // 根据url播放远程地址
 - (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache {
     
-    _url = url;
+    self.url = url;
     if (isCache) {
         url = [url steamingURL];
     }
@@ -63,8 +65,15 @@ static HSRemotePlayer *_shareInstance;
     NSURL *currentURL = [(AVURLAsset *)self.player.currentItem.asset URL];
     if ([url isEqual:currentURL]) {
         NSLog(@"当前播放任务已经存在");
-        [self resume];
-        return;
+        
+        if (self.state == HSRemotePlayerStatePlaying || self.state == HSRemotePlayerStateLoading) {
+            return;
+        }
+        if (self.state == HSRemotePlayerStatePause) {
+            [self resume];
+            return;
+        }
+        
     }
     
     /*
@@ -106,6 +115,8 @@ static HSRemotePlayer *_shareInstance;
     // 播放被打断（来电话／资源加载跟不上了）
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playInterupt) name:AVPlayerItemPlaybackStalledNotification object:nil];
     
+    [self.player pause];
+    
     // 3. 资源的播放
     self.player = [AVPlayer playerWithPlayerItem:item];
     
@@ -123,9 +134,9 @@ static HSRemotePlayer *_shareInstance;
 // 继续播放
 - (void)resume {
     [self.player play];
-    _isUserPause = NO;
     // 当前播放器存在且数据组织者里面的数据准备, 已经足够播放了
     if (self.player && self.player.currentItem.playbackLikelyToKeepUp) {
+        _isUserPause = NO;
         self.state = HSRemotePlayerStatePlaying;
     }
     
@@ -134,14 +145,13 @@ static HSRemotePlayer *_shareInstance;
 // 停止播放
 - (void)stop {
     [self.player pause];
+    [self removeObserver];
     self.player = nil;
-    if (self.player) {
-        self.state = HSRemotePlayerStateStopped;
-    }
+    self.state = HSRemotePlayerStateStopped;
 }
 
-// 拖动进度条的进度
-- (void)seekWithProgress:(float)progress {
+// 播放进度
+-(void)setProgress:(float)progress {
     
     if (progress < 0 || progress > 1) {
         return;
@@ -153,12 +163,8 @@ static HSRemotePlayer *_shareInstance;
     // 秒 -> 影片时间
     
     // 当前音频, 已经播放的时长 --> self.player.currentItem.currentTime
-
     
-    CMTime totalTime = self.player.currentItem.duration;
-    
-    NSTimeInterval totalSec = CMTimeGetSeconds(totalTime);
-    NSTimeInterval playTimeSec = totalSec * progress;
+    NSTimeInterval playTimeSec = self.totalTime * progress;
     CMTime currentTime = CMTimeMake(playTimeSec, 1);
     
     [self.player seekToTime:currentTime completionHandler:^(BOOL finished) {
@@ -168,8 +174,13 @@ static HSRemotePlayer *_shareInstance;
             NSLog(@"取消加载这个时间点的音频资源");
         }
     }];
-    
-    
+
+}
+- (float)progress {
+    if (self.totalTime == 0) {
+        return 0;
+    }
+    return self.currentTime / self.totalTime;
 }
 
 // 快进 timeDiffer 秒
@@ -183,7 +194,7 @@ static HSRemotePlayer *_shareInstance;
     
     playTimeSec += timeDiffer;
     
-    [self seekWithProgress:playTimeSec / totalTimeSec];
+    [self setProgress:playTimeSec / totalTimeSec];
     
 }
 
@@ -200,7 +211,7 @@ static HSRemotePlayer *_shareInstance;
     self.player.muted = muted;
 }
 - (BOOL)muted {
-    return self.player.muted;
+    return self.player.isMuted;
 }
 
 // 音量
@@ -227,7 +238,6 @@ static HSRemotePlayer *_shareInstance;
     return [NSString stringWithFormat:@"%02zd:%02zd", (int)self.totalTime / 60, (int)self.totalTime % 60];
 }
 
-#pragma mark -数据/事件
 // 总时间
 -(NSTimeInterval)totalTime {
     CMTime totalTime = self.player.currentItem.duration;
@@ -248,13 +258,6 @@ static HSRemotePlayer *_shareInstance;
     return playTimeSec;
 }
 
-// 播放进度
-- (float)progress {
-    if (self.totalTime == 0) {
-        return 0;
-    }
-    return self.currentTime / self.totalTime;
-}
 
 //缓存进度
 - (float)loadDataProgress {
@@ -282,9 +285,27 @@ static HSRemotePlayer *_shareInstance;
     
     // 如果需要告知外界相关的事件（block／代理／发通知）
     
-    
     if (self.stateChange) {
         self.stateChange(_state);
+    }
+    
+    if (self.url) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kRemotePlayerURLOrStateChangeNotification object:nil userInfo:@{
+                                                                                                                                   @"playURL": self.url,                                                                  @"playState": @(state)
+                                                                                                                                   }];
+    }
+    
+    
+}
+
+- (void)setUrl:(NSURL *)url {
+    _url = url;
+    
+    if (self.url) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kRemotePlayerURLOrStateChangeNotification object:nil userInfo:@{
+                                                                                                                                   @"playURL": self.url,                                                                  @"playState": @(self.state)
+                                                                                                                                   
+                                                                                                                                   }];
     }
     
 }
@@ -299,6 +320,9 @@ static HSRemotePlayer *_shareInstance;
 - (void)playEnd {
     NSLog(@"播放完成");
     self.state = HSRemotePlayerStateStopped;
+    if (self.playEndBlock) {
+        self.playEndBlock();
+    }
 }
 
 // 播放被打断
@@ -315,24 +339,43 @@ static HSRemotePlayer *_shareInstance;
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     
     if ([keyPath isEqualToString:@"status"]) {
+        
         AVPlayerItemStatus status = [change[NSKeyValueChangeNewKey] integerValue];
-        if (status == AVPlayerItemStatusReadyToPlay) {
-            NSLog(@"资源准备好了, 这时候播放就没有问题");
-            [self resume];
-        }else {
-            NSLog(@"状态未知");
-            self.state = HSRemotePlayerStateFailed;
+        
+        switch (status) {
+            case AVPlayerItemStatusReadyToPlay:
+            {
+                NSLog(@"资源准备完毕, 开始播放");
+                [self resume];
+
+            }
+                break;
+            case AVPlayerItemStatusFailed:
+            {
+                NSLog(@"数据准备失败, 无法播放");
+                self.state = HSRemotePlayerStateFailed;
+            }
+                break;
+            default:
+            {
+                NSLog(@"未知状态");
+                self.state = HSRemotePlayerStateUnknown;
+            }
+                break;
         }
-    }else if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"]) {
-        BOOL ptk = [change[NSKeyValueChangeNewKey] boolValue];
-        if (ptk) {
-            NSLog(@"当前的资源, 准备的已经足够播放了");
+        
+    }
+    
+    if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"]) {
+        
+        BOOL playbackLikelyToKeepUp = [change[NSKeyValueChangeNewKey] boolValue];
+        
+        if (playbackLikelyToKeepUp) {
             
+            NSLog(@"当前的资源, 准备的已经足够播放了");
             // 用户的手动暂停的优先级最高
             if (!_isUserPause) {
                 [self resume];
-            }else {
-                
             }
             
         }else {

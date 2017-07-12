@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+
+#define kRemotePlayerURLOrStateChangeNotification @"remotePlayerURLOrStateChangeNotification"
+
+
 /**
  * 播放器的状态
  * 因为UI界面需要加载状态显示, 所以需要提供加载状态
@@ -27,18 +31,12 @@ typedef NS_ENUM(NSInteger, HSRemotePlayerState) {
     HSRemotePlayerStateFailed    = 5
 };
 
-// 实时监听状态的改变
-typedef void(^StateChangeType)(HSRemotePlayerState state);
 
-// 资源总时间，当前时间
-typedef void(^ResourceInfoBlock)(NSString *totalTimeFormat,NSString *currentTimeFormat);
-
-// 播放进度，加载进度
-typedef void(^ProgressBlockType)(float progress,float loadDataProgress);
-
-
-
-
+//// 资源总时间，当前时间
+//typedef void(^HSRemotePlayerResourceInfoBlock)(NSString *totalTimeFormat,NSString *currentTimeFormat);
+//
+//// 播放进度，加载进度
+//typedef void(^HSRemotePlayerProgressBlockType)(float progress,float loadDataProgress);
 
 
 @interface HSRemotePlayer : NSObject
@@ -47,7 +45,7 @@ typedef void(^ProgressBlockType)(float progress,float loadDataProgress);
 
 
 // 可以 实时监测状态的变更
-- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache stateBlock:(StateChangeType)stateChange;
+- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache stateBlock:(void(^)(HSRemotePlayerState state))stateChange;
 
 
 // 根据url播放远程地址  isCache 控制是否需要缓存
@@ -65,9 +63,6 @@ typedef void(^ProgressBlockType)(float progress,float loadDataProgress);
 // 快进/快退 timeDiffer 秒 为负值时快退
 - (void)seekWithTimeDiffer:(NSTimeInterval)timeDiffer;
 
-// 拖动进度条的进度
-- (void)seekWithProgress:(float)progress;
-
 
 #pragma mark - 数据提供
 
@@ -80,27 +75,31 @@ typedef void(^ProgressBlockType)(float progress,float loadDataProgress);
 // 倍速
 @property (nonatomic, assign) float rate;
 
-//总时长
+// 播放进度
+@property (nonatomic, assign) float progress;
+
+// 总时长
 @property (nonatomic, assign, readonly) NSTimeInterval totalTime;
 @property (nonatomic, copy, readonly) NSString *totalTimeFormat;
 
-//播放时长
+// 播放时长
 @property (nonatomic, assign, readonly) NSTimeInterval currentTime;
 @property (nonatomic, copy, readonly) NSString *currentTimeFormat;
 
-//播放进度
-@property (nonatomic, assign, readonly) float progress;
-
-//资源url
+// 资源url
 @property (nonatomic, strong, readonly) NSURL *url;
 
-//缓存进度
+// 缓存进度
 @property (nonatomic, assign, readonly) float loadDataProgress;
 
+// 音频当前播放状态
 @property (nonatomic, assign, readonly) HSRemotePlayerState state;
 
 // 实时监听状态的改变
-@property (nonatomic, copy) StateChangeType stateChange;
+@property (nonatomic, copy) void(^stateChange)(HSRemotePlayerState state);
+
+// 监听音频播放完成
+@property (nonatomic, copy) void(^playEndBlock)();
 
 
 @end

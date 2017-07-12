@@ -101,14 +101,19 @@
 }
 
 // 拖动进度条的进度
-- (void)seekWithProgress:(float)progress {
+-(void)setProgress:(float)progress {
     if (progress < 0 || progress > 1) {
         return;
     }
-
-    self.player.currentTime = self.player.duration * progress;
+    
+    self.player.currentTime = self.totalTime * progress;
 }
-
+-(float)progress {
+    if (self.totalTime == 0) {
+        return 0;
+    }
+    return self.currentTime / self.totalTime;
+}
 
 // 倍速
 - (void)setRate:(float)rate {
