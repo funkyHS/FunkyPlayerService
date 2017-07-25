@@ -11,6 +11,7 @@
 #import "HSLocalPlayer.h"
 
 
+
 @interface HSPlayerService : NSObject
 
 // 本地播放器
@@ -20,7 +21,7 @@
 @property (nonatomic, strong) HSRemotePlayer *remoteAudioTool;
 
 // 本地或远程的播放状态
-@property (nonatomic, assign) HSRemotePlayerState state;
+@property (nonatomic, assign) HSPlayerState state;
 
 // 当前资源url
 @property (nonatomic, copy, readonly) NSURL *currentPlayURL;
@@ -57,10 +58,10 @@
  @param isCache 是远程资源文件，并且请求到了完整的资源路径，YES缓存到本地，NO不缓存
  @param stateBlock 本地或远程的播放状态
  */
-- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache withStateBlock: (void(^)(HSRemotePlayerState state))stateBlock;
+- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache withStateBlock: (void(^)(HSPlayerState state))stateBlock;
 
 // 如果是远程资源文件，并且请求到了完整的资源路径 默认缓存到本地
-- (void)playWithURL:(NSURL *)url withStateBlock: (void(^)(HSRemotePlayerState state))stateBlock;
+- (void)playWithURL:(NSURL *)url withStateBlock: (void(^)(HSPlayerState state))stateBlock;
 
 // 播放
 - (void)playCurrentAudio;

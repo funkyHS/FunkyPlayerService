@@ -15,20 +15,20 @@
 /**
  * 播放器的状态
  * 因为UI界面需要加载状态显示, 所以需要提供加载状态
- - HSRemotePlayerStateUnknown: 未知(比如都没有开始播放音乐)
- - HSRemotePlayerStateLoading: 正在加载()
- - HSRemotePlayerStatePlaying: 正在播放
- - HSRemotePlayerStateStopped: 停止
- - HSRemotePlayerStatePause:   暂停
- - HSRemotePlayerStateFailed:  失败(比如没有网络缓存失败, 地址找不到)
+ - HSPlayerStateUnknown: 未知(比如都没有开始播放音乐)
+ - HSPlayerStateLoading: 正在加载()
+ - HSPlayerStatePlaying: 正在播放
+ - HSPlayerStateStopped: 停止
+ - HSPlayerStatePause:   暂停
+ - HSPlayerStateFailed:  失败(比如没有网络缓存失败, 地址找不到)
  */
-typedef NS_ENUM(NSInteger, HSRemotePlayerState) {
-    HSRemotePlayerStateUnknown = 0,
-    HSRemotePlayerStateLoading   = 1,
-    HSRemotePlayerStatePlaying   = 2,
-    HSRemotePlayerStateStopped   = 3,
-    HSRemotePlayerStatePause     = 4,
-    HSRemotePlayerStateFailed    = 5
+typedef NS_ENUM(NSInteger, HSPlayerState) {
+    HSPlayerStateUnknown = 0,
+    HSPlayerStateLoading   = 1,
+    HSPlayerStatePlaying   = 2,
+    HSPlayerStateStopped   = 3,
+    HSPlayerStatePause     = 4,
+    HSPlayerStateFailed    = 5
 };
 
 
@@ -45,7 +45,7 @@ typedef NS_ENUM(NSInteger, HSRemotePlayerState) {
 
 
 // 可以 实时监测状态的变更
-- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache stateBlock:(void(^)(HSRemotePlayerState state))stateChange;
+- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache stateBlock:(void(^)(HSPlayerState state))stateChange;
 
 
 // 根据url播放远程地址  isCache 控制是否需要缓存
@@ -93,10 +93,10 @@ typedef NS_ENUM(NSInteger, HSRemotePlayerState) {
 @property (nonatomic, assign, readonly) float loadDataProgress;
 
 // 音频当前播放状态
-@property (nonatomic, assign, readonly) HSRemotePlayerState state;
+@property (nonatomic, assign, readonly) HSPlayerState state;
 
 // 实时监听状态的改变
-@property (nonatomic, copy) void(^stateChange)(HSRemotePlayerState state);
+@property (nonatomic, copy) void(^stateChange)(HSPlayerState state);
 
 // 监听音频播放完成
 @property (nonatomic, copy) void(^playEndBlock)();

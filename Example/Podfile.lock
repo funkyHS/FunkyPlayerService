@@ -1,11 +1,13 @@
 PODS:
-  - FunkyPlayerService (0.1.0):
-    - FunkyPlayerService/LocalPlayer (= 0.1.0)
-    - FunkyPlayerService/PlayerService (= 0.1.0)
-    - FunkyPlayerService/RemotePlayer (= 0.1.0)
-  - FunkyPlayerService/LocalPlayer (0.1.0)
-  - FunkyPlayerService/PlayerService (0.1.0)
-  - FunkyPlayerService/RemotePlayer (0.1.0)
+  - FunkyPlayerService (0.1.4):
+    - FunkyPlayerService/LocalPlayer (= 0.1.4)
+    - FunkyPlayerService/PlayerService (= 0.1.4)
+    - FunkyPlayerService/RemotePlayer (= 0.1.4)
+  - FunkyPlayerService/LocalPlayer (0.1.4)
+  - FunkyPlayerService/PlayerService (0.1.4):
+    - FunkyPlayerService/LocalPlayer
+    - FunkyPlayerService/RemotePlayer
+  - FunkyPlayerService/RemotePlayer (0.1.4)
 
 DEPENDENCIES:
   - FunkyPlayerService (from `../`)
@@ -15,7 +17,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  FunkyPlayerService: 669795a13d786e0409707f9123d6b90ae9898736
+  FunkyPlayerService: 6f011ea6b79a0ae601287ede3632e6377f330b8b
 
 PODFILE CHECKSUM: c1a05307426d38869c6ab7cf81749c1560e8ccd0
 

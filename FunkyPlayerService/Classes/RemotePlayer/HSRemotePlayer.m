@@ -46,7 +46,7 @@ static HSRemotePlayer *_shareInstance;
 
 
 
-- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache stateBlock:(void(^)(HSRemotePlayerState state))stateChange {
+- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache stateBlock:(void(^)(HSPlayerState state))stateChange {
     
     self.stateChange = stateChange;
     [self playWithURL:url isCache:isCache];
@@ -66,13 +66,18 @@ static HSRemotePlayer *_shareInstance;
     if ([url isEqual:currentURL]) {
         NSLog(@"当前播放任务已经存在");
         
-        if (self.state == HSRemotePlayerStatePlaying || self.state == HSRemotePlayerStateLoading) {
+        if (self.state == HSPlayerStatePlaying) {
             return;
         }
-        if (self.state == HSRemotePlayerStatePause) {
+        if (self.state == HSPlayerStatePause) {
             [self resume];
             return;
         }
+        
+        if (self.state == HSPlayerStateLoading) {
+            return;
+        }
+        
         
     }
     
@@ -127,7 +132,7 @@ static HSRemotePlayer *_shareInstance;
     [self.player pause];
     _isUserPause = YES;
     if (self.player) {
-        self.state = HSRemotePlayerStatePause;
+        self.state = HSPlayerStatePause;
     }
 }
 
@@ -137,7 +142,7 @@ static HSRemotePlayer *_shareInstance;
     // 当前播放器存在且数据组织者里面的数据准备, 已经足够播放了
     if (self.player && self.player.currentItem.playbackLikelyToKeepUp) {
         _isUserPause = NO;
-        self.state = HSRemotePlayerStatePlaying;
+        self.state = HSPlayerStatePlaying;
     }
     
 }
@@ -147,7 +152,7 @@ static HSRemotePlayer *_shareInstance;
     [self.player pause];
     [self removeObserver];
     self.player = nil;
-    self.state = HSRemotePlayerStateStopped;
+    self.state = HSPlayerStateStopped;
 }
 
 // 播放进度
@@ -276,7 +281,7 @@ static HSRemotePlayer *_shareInstance;
 }
 
 // 播放状态的改变
-- (void)setState:(HSRemotePlayerState)state {
+- (void)setState:(HSPlayerState)state {
     
     if(_state == state) {
         return;
@@ -304,7 +309,6 @@ static HSRemotePlayer *_shareInstance;
     if (self.url) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kRemotePlayerURLOrStateChangeNotification object:nil userInfo:@{
                                                                                                                                    @"playURL": self.url,                                                                  @"playState": @(self.state)
-                                                                                                                                   
                                                                                                                                    }];
     }
     
@@ -319,7 +323,7 @@ static HSRemotePlayer *_shareInstance;
 // 播放完成
 - (void)playEnd {
     NSLog(@"播放完成");
-    self.state = HSRemotePlayerStateStopped;
+    self.state = HSPlayerStateStopped;
     if (self.playEndBlock) {
         self.playEndBlock();
     }
@@ -329,7 +333,7 @@ static HSRemotePlayer *_shareInstance;
 - (void)playInterupt {
     // 来电话, 资源加载跟不上
     NSLog(@"播放被打断");
-    self.state = HSRemotePlayerStatePause;
+    self.state = HSPlayerStatePause;
 }
 
 
@@ -353,13 +357,13 @@ static HSRemotePlayer *_shareInstance;
             case AVPlayerItemStatusFailed:
             {
                 NSLog(@"数据准备失败, 无法播放");
-                self.state = HSRemotePlayerStateFailed;
+                self.state = HSPlayerStateFailed;
             }
                 break;
             default:
             {
                 NSLog(@"未知状态");
-                self.state = HSRemotePlayerStateUnknown;
+                self.state = HSPlayerStateUnknown;
             }
                 break;
         }
@@ -380,7 +384,7 @@ static HSRemotePlayer *_shareInstance;
             
         }else {
             NSLog(@"资源还不够, 正在加载过程当中");
-            self.state = HSRemotePlayerStateLoading;
+            self.state = HSPlayerStateLoading;
         }
         
         

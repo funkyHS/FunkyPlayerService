@@ -23,20 +23,18 @@
     
     self.stateBlock = stateBlock;
     if ([filePath isEqual:self.player.url]) {
-        [self.player play];
-        stateBlock(self.player.isPlaying);
+        [self play];
         return;
     }
     
+    [self setBackPlay];
+
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:filePath error:nil];
     self.player.enableRate = YES;
+    self.player.volume=1.0;
     [self.player prepareToPlay];
-    [self.player play];
-    if (self.stateBlock) {
-        self.stateBlock(self.player.isPlaying);
-    }
+    [self play];
 
-    
 }
 
 - (void)setBackPlay {
@@ -51,12 +49,32 @@
     
 }
 
-
+- (void)play {
+    [self.player play];
+    if (self.stateBlock) {
+        self.stateBlock(self.player.isPlaying);
+    }
+    
+    if (self.player.url) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLocalPlayerURLOrStateChangeNotification object:nil userInfo:@{
+                                                                                                                                  @"playURL": self.player.url,                                                                  @"playState": @(self.player.isPlaying)
+                                                                                                                                  }];
+    }
+}
 // 暂停
 - (void)pause {
     [self.player pause];
     if (self.stateBlock) {
         self.stateBlock(self.player.isPlaying);
+    }
+    
+    
+    if (self.player.url) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLocalPlayerURLOrStateChangeNotification object:nil userInfo:@{
+                                                                                                                                  @"playURL": self.player.url,                                                                  @"playState": @(self.player.isPlaying)
+                                                                                                                                  }];
     }
 }
 

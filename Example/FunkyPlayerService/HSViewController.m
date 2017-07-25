@@ -66,7 +66,7 @@
 - (IBAction)play:(id)sender {
     
     NSURL *url = [NSURL URLWithString:@"http://audio.xmcdn.com/group23/M04/63/C5/wKgJNFg2qdLCziiYAGQxcTOSBEw402.m4a"];
-    [[HSPlayerService shareInstance] playWithURL:url isCache:YES withStateBlock:^(HSRemotePlayerState state) {
+    [[HSPlayerService shareInstance] playWithURL:url isCache:YES withStateBlock:^(HSPlayerState state) {
         NSLog(@"========= %ld",(long)state);
     }];
     
@@ -82,7 +82,7 @@
     [[HSPlayerService shareInstance] seekWithTimeDiffer:-15];
 }
 - (IBAction)progress:(UISlider *)sender {
-    [[HSPlayerService shareInstance] seekWithProgress:sender.value];
+    [HSPlayerService shareInstance].progress = sender.value;
 }
 - (IBAction)rate:(id)sender {
     [[HSPlayerService shareInstance] setRate:2];

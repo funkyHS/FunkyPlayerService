@@ -8,28 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		123D73D84CB0734C0A5B4367731C73FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		160844568D62609114A923F1DFAD6019 /* NSURL+HSURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E84CCA13A797DBB559CF62B01FE46F2 /* NSURL+HSURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		160844568D62609114A923F1DFAD6019 /* NSURL+HSURL.h in Headers */ = {isa = PBXBuildFile; fileRef = D59E7EC96EA6425EB9B3FD7F4FFDDC8A /* NSURL+HSURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		226ADC1C67B6B336574E7C1D0EB8E173 /* Pods-FunkyPlayerService_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC151B0A432914E2069043303FD9438 /* Pods-FunkyPlayerService_Example-dummy.m */; };
-		52709D20594279B3EF5C36EF44D76A95 /* HSRemoteResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B4D3C04B463DAFAF6839F32DEDB55774 /* HSRemoteResourceLoaderDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5EB5E47ABB96DAB960FADC2E986A9F47 /* HSLocalPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B742A45386721FDFC5E51961A11DF77 /* HSLocalPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		636499A9D34F8D17A27D80E4EE2E64A5 /* HSRemotePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BA3A986A08B9997642CA4C4F6458C6 /* HSRemotePlayer.m */; };
+		52709D20594279B3EF5C36EF44D76A95 /* HSRemoteResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = CE949496B3217788FDC14E10D12D388D /* HSRemoteResourceLoaderDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5EB5E47ABB96DAB960FADC2E986A9F47 /* HSLocalPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 09C5926B6DA4C41F05E493161C485369 /* HSLocalPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		636499A9D34F8D17A27D80E4EE2E64A5 /* HSRemotePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F39D309979B43E23852AC1FE3949A /* HSRemotePlayer.m */; };
 		741FAB63EC7264FCFEBED8983A4526EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		74E963787EE8C573B12175B86BB425BD /* HSRemoteAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F1979C9DE68F38C9A22C6027250167AD /* HSRemoteAudioFile.m */; };
-		7BA9C8A860A2C601130E1A69A4CD21A7 /* HSRemoteResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B44831AE4878837E522B022A54AC8AEA /* HSRemoteResourceLoaderDelegate.m */; };
-		89A56907F492124AB930C4D5352F7816 /* HSPlayerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8962CF2B2A3989701C14903FA73999C0 /* HSPlayerService.m */; };
+		74E963787EE8C573B12175B86BB425BD /* HSRemoteAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4603F51BF57F821278547B3C0A98BF9E /* HSRemoteAudioFile.m */; };
+		7BA9C8A860A2C601130E1A69A4CD21A7 /* HSRemoteResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63592E2752564527974C779DE4FAFD93 /* HSRemoteResourceLoaderDelegate.m */; };
+		89A56907F492124AB930C4D5352F7816 /* HSPlayerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7403B223D68C254D2C321F34A5B1562D /* HSPlayerService.m */; };
 		96F8E488E8E025832A3FC1789765BB9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		997199EA4142F4306C027EA923596417 /* HSRemoteAudioFile.h in Headers */ = {isa = PBXBuildFile; fileRef = DC12196F7E9B6A7818AEAABBF88E3465 /* HSRemoteAudioFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AA59DEB7103DD67C66DE15069E8BB7F8 /* FunkyPlayerService-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E50EAC425DBAA7F8B0DB107AD0BAEF2 /* FunkyPlayerService-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AFA00419030DC6E511EB0EA2358CD8FA /* HSPlayerService.h in Headers */ = {isa = PBXBuildFile; fileRef = 184D8B8B176FF6682A0941BCC32DD93C /* HSPlayerService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BD69C2EF51DB5501B8472210CE3C245F /* NSURL+HSURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 556844FD6D94BDD84B31B08F64F8BFCE /* NSURL+HSURL.m */; };
-		CD8598FD49BBE24F8257D3E781B37BD1 /* HSAudioDownLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = D14EED4AE708D28EEAE439245E8AAF25 /* HSAudioDownLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		997199EA4142F4306C027EA923596417 /* HSRemoteAudioFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 2333CF1F004FD79AE1B51EEF2699294E /* HSRemoteAudioFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA59DEB7103DD67C66DE15069E8BB7F8 /* FunkyPlayerService-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A7B04A89BD513B9C33AE855320B1BB6 /* FunkyPlayerService-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AFA00419030DC6E511EB0EA2358CD8FA /* HSPlayerService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F838DD000F7FD89ACC46B31A3FC7EA3 /* HSPlayerService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BD69C2EF51DB5501B8472210CE3C245F /* NSURL+HSURL.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9083053F6099A320476062829BF0EA /* NSURL+HSURL.m */; };
+		CD8598FD49BBE24F8257D3E781B37BD1 /* HSAudioDownLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CF59B41DC81235D15B5703B7086A337 /* HSAudioDownLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA2E7FEB1E3683DA27D96E04C20C6263 /* Pods-FunkyPlayerService_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 93960E54403056BFBFA60A10ECEA6084 /* Pods-FunkyPlayerService_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DCFED389169634CFACA295BCCA854486 /* HSRemotePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = AE8AFA969D908F7C55CCCF2FB5C0B084 /* HSRemotePlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCFED389169634CFACA295BCCA854486 /* HSRemotePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6027AD4BE91585B6FCD3948BA14A4580 /* HSRemotePlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD55EAE57F06FE6978088539C22A2101 /* Pods-FunkyPlayerService_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D71C9180393CDD1DD98321D738A19BDF /* Pods-FunkyPlayerService_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E3C20EED1E678A6B418D0ACF29809F20 /* Pods-FunkyPlayerService_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3CF331213E756C48FE3B6F8E8053DD /* Pods-FunkyPlayerService_Tests-dummy.m */; };
-		F50FE58BB8E23D6ED68086E6006AAB55 /* FunkyPlayerService-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2C4D84E419A5BA9C5178090898FB83 /* FunkyPlayerService-dummy.m */; };
-		F6C8EB525CAECCC142BE32095D61CDF3 /* HSLocalPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4636BAC21D0F6B230497D4B93BC99A4 /* HSLocalPlayer.m */; };
-		F8D72816E9934D4C1EE1AA45B3F53E2E /* HSAudioDownLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 362EC10E1A77EC34595FD7C4934AD1C7 /* HSAudioDownLoader.m */; };
+		F50FE58BB8E23D6ED68086E6006AAB55 /* FunkyPlayerService-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E0CE5A1B10A456378B03E6DE91010140 /* FunkyPlayerService-dummy.m */; };
+		F6C8EB525CAECCC142BE32095D61CDF3 /* HSLocalPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87192B33C36589F7DF386F458F743D69 /* HSLocalPlayer.m */; };
+		F8D72816E9934D4C1EE1AA45B3F53E2E /* HSAudioDownLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D25FB218F1B184174A0FA63466E881 /* HSAudioDownLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,50 +43,50 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09C5926B6DA4C41F05E493161C485369 /* HSLocalPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HSLocalPlayer.h; sourceTree = "<group>"; };
+		0CF59B41DC81235D15B5703B7086A337 /* HSAudioDownLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HSAudioDownLoader.h; sourceTree = "<group>"; };
 		10C08673BD7A1D9382633235E0268B7B /* Pods-FunkyPlayerService_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FunkyPlayerService_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		184D8B8B176FF6682A0941BCC32DD93C /* HSPlayerService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HSPlayerService.h; sourceTree = "<group>"; };
 		186C143BF7B336319F19505A42F3C7B4 /* Pods-FunkyPlayerService_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FunkyPlayerService_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		2333CF1F004FD79AE1B51EEF2699294E /* HSRemoteAudioFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HSRemoteAudioFile.h; sourceTree = "<group>"; };
+		2373EF9805927879743A6F380D357BC9 /* FunkyPlayerService.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FunkyPlayerService.modulemap; sourceTree = "<group>"; };
+		27462B878A822E3BCE14B5823C85F8EE /* FunkyPlayerService.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FunkyPlayerService.xcconfig; sourceTree = "<group>"; };
 		28660D04E2CF0D8EDCEBEE6BC718D9E5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29BA3A986A08B9997642CA4C4F6458C6 /* HSRemotePlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HSRemotePlayer.m; sourceTree = "<group>"; };
 		32AC9E51638ADAA4AA2DE93FF5601CE2 /* Pods-FunkyPlayerService_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FunkyPlayerService_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		362EC10E1A77EC34595FD7C4934AD1C7 /* HSAudioDownLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HSAudioDownLoader.m; sourceTree = "<group>"; };
 		3AB88FE83984A6D3FBC44DC5CF9DA6F5 /* Pods-FunkyPlayerService_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FunkyPlayerService_Tests.modulemap"; sourceTree = "<group>"; };
+		4603F51BF57F821278547B3C0A98BF9E /* HSRemoteAudioFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HSRemoteAudioFile.m; sourceTree = "<group>"; };
 		467189292AD60A89312B77612693B2C2 /* Pods-FunkyPlayerService_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FunkyPlayerService_Tests-resources.sh"; sourceTree = "<group>"; };
-		4B2C4D84E419A5BA9C5178090898FB83 /* FunkyPlayerService-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FunkyPlayerService-dummy.m"; sourceTree = "<group>"; };
 		5525205638801B435621245E800F0227 /* FunkyPlayerService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FunkyPlayerService.framework; path = FunkyPlayerService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		556844FD6D94BDD84B31B08F64F8BFCE /* NSURL+HSURL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSURL+HSURL.m"; sourceTree = "<group>"; };
 		56B96152AA0D09FC57B1AB5F104D4A17 /* Pods-FunkyPlayerService_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FunkyPlayerService_Example.release.xcconfig"; sourceTree = "<group>"; };
+		5A7B04A89BD513B9C33AE855320B1BB6 /* FunkyPlayerService-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FunkyPlayerService-umbrella.h"; sourceTree = "<group>"; };
 		5F010C50BA2A4160D1896BB75A666379 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F8B42BD934533E4272A39D60A89EB1D /* Pods-FunkyPlayerService_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FunkyPlayerService_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		60E30A5BA592D4B6AF070670D7445302 /* FunkyPlayerService-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FunkyPlayerService-prefix.pch"; sourceTree = "<group>"; };
+		6027AD4BE91585B6FCD3948BA14A4580 /* HSRemotePlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HSRemotePlayer.h; sourceTree = "<group>"; };
+		63592E2752564527974C779DE4FAFD93 /* HSRemoteResourceLoaderDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HSRemoteResourceLoaderDelegate.m; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6B77CA42C656DACA59D7CB32B195EE8C /* Pods_FunkyPlayerService_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FunkyPlayerService_Tests.framework; path = "Pods-FunkyPlayerService_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F838DD000F7FD89ACC46B31A3FC7EA3 /* HSPlayerService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HSPlayerService.h; sourceTree = "<group>"; };
+		7403B223D68C254D2C321F34A5B1562D /* HSPlayerService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HSPlayerService.m; sourceTree = "<group>"; };
 		7AE3123B6D731511065129AFE39D4497 /* Pods_FunkyPlayerService_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FunkyPlayerService_Example.framework; path = "Pods-FunkyPlayerService_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E50EAC425DBAA7F8B0DB107AD0BAEF2 /* FunkyPlayerService-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FunkyPlayerService-umbrella.h"; sourceTree = "<group>"; };
-		7E84CCA13A797DBB559CF62B01FE46F2 /* NSURL+HSURL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSURL+HSURL.h"; sourceTree = "<group>"; };
-		8962CF2B2A3989701C14903FA73999C0 /* HSPlayerService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HSPlayerService.m; sourceTree = "<group>"; };
+		863D6DA60A3324FCBA0590E1A37E6502 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		863F39D309979B43E23852AC1FE3949A /* HSRemotePlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HSRemotePlayer.m; sourceTree = "<group>"; };
+		87192B33C36589F7DF386F458F743D69 /* HSLocalPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HSLocalPlayer.m; sourceTree = "<group>"; };
 		93960E54403056BFBFA60A10ECEA6084 /* Pods-FunkyPlayerService_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FunkyPlayerService_Tests-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9B742A45386721FDFC5E51961A11DF77 /* HSLocalPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HSLocalPlayer.h; sourceTree = "<group>"; };
 		9EADA795F6F28BE52229D9375F9B02B1 /* Pods-FunkyPlayerService_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FunkyPlayerService_Example.modulemap"; sourceTree = "<group>"; };
+		AB10ACF024DA1739DAFC2B32472E09AA /* FunkyPlayerService-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FunkyPlayerService-prefix.pch"; sourceTree = "<group>"; };
 		AE3CF331213E756C48FE3B6F8E8053DD /* Pods-FunkyPlayerService_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FunkyPlayerService_Tests-dummy.m"; sourceTree = "<group>"; };
-		AE8AFA969D908F7C55CCCF2FB5C0B084 /* HSRemotePlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HSRemotePlayer.h; sourceTree = "<group>"; };
-		B44831AE4878837E522B022A54AC8AEA /* HSRemoteResourceLoaderDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HSRemoteResourceLoaderDelegate.m; sourceTree = "<group>"; };
-		B4D3C04B463DAFAF6839F32DEDB55774 /* HSRemoteResourceLoaderDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HSRemoteResourceLoaderDelegate.h; sourceTree = "<group>"; };
 		BB4781B2F1E25914D87B5999A91C8EB1 /* Pods-FunkyPlayerService_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FunkyPlayerService_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BCCDB6C0A5A0B56BDB22A7F9C3DFE097 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BFB4A8D764447C95AD4D30175AF77019 /* FunkyPlayerService.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FunkyPlayerService.modulemap; sourceTree = "<group>"; };
 		BFECF2C4EDF7B9359E74072886C1B6B7 /* Pods-FunkyPlayerService_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FunkyPlayerService_Example-resources.sh"; sourceTree = "<group>"; };
 		CBC151B0A432914E2069043303FD9438 /* Pods-FunkyPlayerService_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FunkyPlayerService_Example-dummy.m"; sourceTree = "<group>"; };
-		D14EED4AE708D28EEAE439245E8AAF25 /* HSAudioDownLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HSAudioDownLoader.h; sourceTree = "<group>"; };
+		CE949496B3217788FDC14E10D12D388D /* HSRemoteResourceLoaderDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HSRemoteResourceLoaderDelegate.h; sourceTree = "<group>"; };
+		D59E7EC96EA6425EB9B3FD7F4FFDDC8A /* NSURL+HSURL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSURL+HSURL.h"; sourceTree = "<group>"; };
 		D71C9180393CDD1DD98321D738A19BDF /* Pods-FunkyPlayerService_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FunkyPlayerService_Example-umbrella.h"; sourceTree = "<group>"; };
-		DC12196F7E9B6A7818AEAABBF88E3465 /* HSRemoteAudioFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HSRemoteAudioFile.h; sourceTree = "<group>"; };
 		DFC490A2EFE2654C41576F89C6347FB2 /* Pods-FunkyPlayerService_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FunkyPlayerService_Example-frameworks.sh"; sourceTree = "<group>"; };
-		EACFBC2D5DFB2D265A37EE140E0B7B06 /* FunkyPlayerService.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FunkyPlayerService.xcconfig; sourceTree = "<group>"; };
+		E0CE5A1B10A456378B03E6DE91010140 /* FunkyPlayerService-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FunkyPlayerService-dummy.m"; sourceTree = "<group>"; };
+		EA9083053F6099A320476062829BF0EA /* NSURL+HSURL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSURL+HSURL.m"; sourceTree = "<group>"; };
 		EFD193A94A6AFDAC8258B87AD8C8D929 /* Pods-FunkyPlayerService_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FunkyPlayerService_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		F1979C9DE68F38C9A22C6027250167AD /* HSRemoteAudioFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HSRemoteAudioFile.m; sourceTree = "<group>"; };
 		F3995410724CAA0595A98887685D2A96 /* Pods-FunkyPlayerService_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FunkyPlayerService_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F4636BAC21D0F6B230497D4B93BC99A4 /* HSLocalPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HSLocalPlayer.m; sourceTree = "<group>"; };
+		F4D25FB218F1B184174A0FA63466E881 /* HSAudioDownLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HSAudioDownLoader.m; sourceTree = "<group>"; };
 		FDB21F6E88A1A30DA9D612D6A5B80DD8 /* Pods-FunkyPlayerService_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FunkyPlayerService_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +118,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0148C6CE3BD2D69DDCC945D83C203A99 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D9F583C62639358F4A426F1C71FDC09E /* PlayerService */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		021CE15F4FBE7B59D4407D17E3F3EF6C /* Pods-FunkyPlayerService_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,13 +145,13 @@
 			path = "Target Support Files/Pods-FunkyPlayerService_Tests";
 			sourceTree = "<group>";
 		};
-		08FF9B67AD0E89949FAC43BF3506FCC4 /* FunkyPlayerService */ = {
+		040B8CF37C1AB4F73559784254CF0B53 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				61E2F04283C99C45CB14DA6B8793D12A /* Classes */,
+				51A2BFE741B0AF0A40B90309EC24A6A2 /* LocalPlayer */,
 			);
-			name = FunkyPlayerService;
-			path = FunkyPlayerService;
+			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		29123E7AFFDDAD85430CB645B36701ED /* Pods-FunkyPlayerService_Example */ = {
@@ -163,55 +172,55 @@
 			path = "Target Support Files/Pods-FunkyPlayerService_Example";
 			sourceTree = "<group>";
 		};
-		2F9A35C7228609F96D6D2EC03ECEDA81 /* Development Pods */ = {
+		33AF4FBFF0BAEDCC9D0731617498A21A /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				571DD7132B9345AF78B02E9C8776EF13 /* FunkyPlayerService */,
+				9324F19092277EF9733D8604FF1354BD /* FunkyPlayerService */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		36D297B20B1B8ECAD3D1743DEF6415DC /* Support Files */ = {
+		3476D835ED96FD83070371ED20EDFD56 /* PlayerService */ = {
 			isa = PBXGroup;
 			children = (
-				BFB4A8D764447C95AD4D30175AF77019 /* FunkyPlayerService.modulemap */,
-				EACFBC2D5DFB2D265A37EE140E0B7B06 /* FunkyPlayerService.xcconfig */,
-				4B2C4D84E419A5BA9C5178090898FB83 /* FunkyPlayerService-dummy.m */,
-				60E30A5BA592D4B6AF070670D7445302 /* FunkyPlayerService-prefix.pch */,
-				7E50EAC425DBAA7F8B0DB107AD0BAEF2 /* FunkyPlayerService-umbrella.h */,
-				BCCDB6C0A5A0B56BDB22A7F9C3DFE097 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/FunkyPlayerService";
-			sourceTree = "<group>";
-		};
-		43089A8711B8712B15102957A8A37792 /* PlayerService */ = {
-			isa = PBXGroup;
-			children = (
-				08FF9B67AD0E89949FAC43BF3506FCC4 /* FunkyPlayerService */,
+				831671B7A4B32F60732A0142B2F6AF12 /* FunkyPlayerService */,
 			);
 			name = PlayerService;
 			sourceTree = "<group>";
 		};
-		571DD7132B9345AF78B02E9C8776EF13 /* FunkyPlayerService */ = {
+		51A2BFE741B0AF0A40B90309EC24A6A2 /* LocalPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				43089A8711B8712B15102957A8A37792 /* PlayerService */,
-				36D297B20B1B8ECAD3D1743DEF6415DC /* Support Files */,
+				09C5926B6DA4C41F05E493161C485369 /* HSLocalPlayer.h */,
+				87192B33C36589F7DF386F458F743D69 /* HSLocalPlayer.m */,
 			);
-			name = FunkyPlayerService;
-			path = ../..;
+			name = LocalPlayer;
+			path = LocalPlayer;
 			sourceTree = "<group>";
 		};
-		61E2F04283C99C45CB14DA6B8793D12A /* Classes */ = {
+		5F7069BA647CD97CCB2810C6E408ACBA /* RemotePlayer */ = {
 			isa = PBXGroup;
 			children = (
-				9523282F6EF16519F94A244E01E6CB01 /* LocalPlayer */,
-				7ACC4614CFEDE7642DCBA3F24BF7D917 /* PlayerService */,
-				786DB7BDB141E739C1247DABE8C4BB7D /* RemotePlayer */,
+				BC229952E64E5B8DD3EA22933C465D0D /* FunkyPlayerService */,
+			);
+			name = RemotePlayer;
+			sourceTree = "<group>";
+		};
+		622CDC2EAD5644DC4A63F13B231F9202 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8A79D0365608BD4974E6E36F08179018 /* RemotePlayer */,
 			);
 			name = Classes;
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		657B24F395636684DA9B48FEA3E245D7 /* LocalPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				B80C504D7F3F8307C7CA22F4EC252357 /* FunkyPlayerService */,
+			);
+			name = LocalPlayer;
 			sourceTree = "<group>";
 		};
 		67EB99145AEE74B23170978D97E20191 /* Products */ = {
@@ -233,53 +242,86 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		786DB7BDB141E739C1247DABE8C4BB7D /* RemotePlayer */ = {
-			isa = PBXGroup;
-			children = (
-				D14EED4AE708D28EEAE439245E8AAF25 /* HSAudioDownLoader.h */,
-				362EC10E1A77EC34595FD7C4934AD1C7 /* HSAudioDownLoader.m */,
-				DC12196F7E9B6A7818AEAABBF88E3465 /* HSRemoteAudioFile.h */,
-				F1979C9DE68F38C9A22C6027250167AD /* HSRemoteAudioFile.m */,
-				AE8AFA969D908F7C55CCCF2FB5C0B084 /* HSRemotePlayer.h */,
-				29BA3A986A08B9997642CA4C4F6458C6 /* HSRemotePlayer.m */,
-				B4D3C04B463DAFAF6839F32DEDB55774 /* HSRemoteResourceLoaderDelegate.h */,
-				B44831AE4878837E522B022A54AC8AEA /* HSRemoteResourceLoaderDelegate.m */,
-				7E84CCA13A797DBB559CF62B01FE46F2 /* NSURL+HSURL.h */,
-				556844FD6D94BDD84B31B08F64F8BFCE /* NSURL+HSURL.m */,
-			);
-			name = RemotePlayer;
-			path = RemotePlayer;
-			sourceTree = "<group>";
-		};
-		7ACC4614CFEDE7642DCBA3F24BF7D917 /* PlayerService */ = {
-			isa = PBXGroup;
-			children = (
-				184D8B8B176FF6682A0941BCC32DD93C /* HSPlayerService.h */,
-				8962CF2B2A3989701C14903FA73999C0 /* HSPlayerService.m */,
-			);
-			name = PlayerService;
-			path = PlayerService;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				2F9A35C7228609F96D6D2EC03ECEDA81 /* Development Pods */,
+				33AF4FBFF0BAEDCC9D0731617498A21A /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				67EB99145AEE74B23170978D97E20191 /* Products */,
 				69EBC71F92C0FF124F3E904584F3A74D /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		9523282F6EF16519F94A244E01E6CB01 /* LocalPlayer */ = {
+		7DCCD2383C8BC5A963D5A7399B0C5C34 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9B742A45386721FDFC5E51961A11DF77 /* HSLocalPlayer.h */,
-				F4636BAC21D0F6B230497D4B93BC99A4 /* HSLocalPlayer.m */,
+				2373EF9805927879743A6F380D357BC9 /* FunkyPlayerService.modulemap */,
+				27462B878A822E3BCE14B5823C85F8EE /* FunkyPlayerService.xcconfig */,
+				E0CE5A1B10A456378B03E6DE91010140 /* FunkyPlayerService-dummy.m */,
+				AB10ACF024DA1739DAFC2B32472E09AA /* FunkyPlayerService-prefix.pch */,
+				5A7B04A89BD513B9C33AE855320B1BB6 /* FunkyPlayerService-umbrella.h */,
+				863D6DA60A3324FCBA0590E1A37E6502 /* Info.plist */,
 			);
-			name = LocalPlayer;
-			path = LocalPlayer;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/FunkyPlayerService";
+			sourceTree = "<group>";
+		};
+		831671B7A4B32F60732A0142B2F6AF12 /* FunkyPlayerService */ = {
+			isa = PBXGroup;
+			children = (
+				0148C6CE3BD2D69DDCC945D83C203A99 /* Classes */,
+			);
+			name = FunkyPlayerService;
+			path = FunkyPlayerService;
+			sourceTree = "<group>";
+		};
+		8A79D0365608BD4974E6E36F08179018 /* RemotePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				0CF59B41DC81235D15B5703B7086A337 /* HSAudioDownLoader.h */,
+				F4D25FB218F1B184174A0FA63466E881 /* HSAudioDownLoader.m */,
+				2333CF1F004FD79AE1B51EEF2699294E /* HSRemoteAudioFile.h */,
+				4603F51BF57F821278547B3C0A98BF9E /* HSRemoteAudioFile.m */,
+				6027AD4BE91585B6FCD3948BA14A4580 /* HSRemotePlayer.h */,
+				863F39D309979B43E23852AC1FE3949A /* HSRemotePlayer.m */,
+				CE949496B3217788FDC14E10D12D388D /* HSRemoteResourceLoaderDelegate.h */,
+				63592E2752564527974C779DE4FAFD93 /* HSRemoteResourceLoaderDelegate.m */,
+				D59E7EC96EA6425EB9B3FD7F4FFDDC8A /* NSURL+HSURL.h */,
+				EA9083053F6099A320476062829BF0EA /* NSURL+HSURL.m */,
+			);
+			name = RemotePlayer;
+			path = RemotePlayer;
+			sourceTree = "<group>";
+		};
+		9324F19092277EF9733D8604FF1354BD /* FunkyPlayerService */ = {
+			isa = PBXGroup;
+			children = (
+				657B24F395636684DA9B48FEA3E245D7 /* LocalPlayer */,
+				3476D835ED96FD83070371ED20EDFD56 /* PlayerService */,
+				5F7069BA647CD97CCB2810C6E408ACBA /* RemotePlayer */,
+				7DCCD2383C8BC5A963D5A7399B0C5C34 /* Support Files */,
+			);
+			name = FunkyPlayerService;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		B80C504D7F3F8307C7CA22F4EC252357 /* FunkyPlayerService */ = {
+			isa = PBXGroup;
+			children = (
+				040B8CF37C1AB4F73559784254CF0B53 /* Classes */,
+			);
+			name = FunkyPlayerService;
+			path = FunkyPlayerService;
+			sourceTree = "<group>";
+		};
+		BC229952E64E5B8DD3EA22933C465D0D /* FunkyPlayerService */ = {
+			isa = PBXGroup;
+			children = (
+				622CDC2EAD5644DC4A63F13B231F9202 /* Classes */,
+			);
+			name = FunkyPlayerService;
+			path = FunkyPlayerService;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -296,6 +338,16 @@
 				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		D9F583C62639358F4A426F1C71FDC09E /* PlayerService */ = {
+			isa = PBXGroup;
+			children = (
+				6F838DD000F7FD89ACC46B31A3FC7EA3 /* HSPlayerService.h */,
+				7403B223D68C254D2C321F34A5B1562D /* HSPlayerService.m */,
+			);
+			name = PlayerService;
+			path = PlayerService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -545,7 +597,7 @@
 		};
 		6D3DBF23187A27A8AABE3C6A9DEA85E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EACFBC2D5DFB2D265A37EE140E0B7B06 /* FunkyPlayerService.xcconfig */;
+			baseConfigurationReference = 27462B878A822E3BCE14B5823C85F8EE /* FunkyPlayerService.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -729,7 +781,7 @@
 		};
 		BB223E6AF0933237DE892C9136B1FDCB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EACFBC2D5DFB2D265A37EE140E0B7B06 /* FunkyPlayerService.xcconfig */;
+			baseConfigurationReference = 27462B878A822E3BCE14B5823C85F8EE /* FunkyPlayerService.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

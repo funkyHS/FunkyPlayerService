@@ -39,7 +39,7 @@ static HSPlayerService *_shareInstance;
     
 }
 
-- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache withStateBlock: (void(^)(HSRemotePlayerState state))stateBlock {
+- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache withStateBlock: (void(^)(HSPlayerState state))stateBlock {
     
     _currentPlayURL = url;
     // 远程地址
@@ -49,7 +49,7 @@ static HSPlayerService *_shareInstance;
             [self.localAudioTool pause];
         }
         
-        [self.remoteAudioTool playWithURL:url isCache:isCache stateBlock:^(HSRemotePlayerState state) {
+        [self.remoteAudioTool playWithURL:url isCache:isCache stateBlock:^(HSPlayerState state) {
             if (stateBlock) {
                 stateBlock(self.state);
             }
@@ -60,7 +60,7 @@ static HSPlayerService *_shareInstance;
         // 本地地址
         _isRemoteURL = NO;
         // 注意: 暂停远程, 会造成回调延迟, 导致block调用先本地开始, 远程暂停
-        if (self.remoteAudioTool.state == HSRemotePlayerStatePlaying) {
+        if (self.remoteAudioTool.state == HSPlayerStatePlaying || self.remoteAudioTool.state == HSPlayerStateLoading) {
             [self.remoteAudioTool pause];
         }
         
@@ -73,14 +73,15 @@ static HSPlayerService *_shareInstance;
     
 }
 
-- (void)playWithURL:(NSURL *)url withStateBlock: (void(^)(HSRemotePlayerState state))stateBlock {
+- (void)playWithURL:(NSURL *)url withStateBlock: (void(^)(HSPlayerState state))stateBlock {
     
-    [self playWithURL:url isCache:YES withStateBlock:^(HSRemotePlayerState state) {
+    [self playWithURL:url isCache:YES withStateBlock:^(HSPlayerState state) {
         if (stateBlock) {
             stateBlock(state);
         }
     }];
 }
+
 
 // 播放
 - (void)playCurrentAudio {
@@ -165,20 +166,20 @@ static HSPlayerService *_shareInstance;
     return _isRemoteURL ? self.remoteAudioTool.loadDataProgress : 0;
 }
 
--(HSRemotePlayerState)state {
+-(HSPlayerState)state {
     
     if (_isRemoteURL) {
         return [self.remoteAudioTool state];
     }else {
         BOOL isPlaying = [self.localAudioTool isPlaying];
         if (isPlaying) {
-            return HSRemotePlayerStatePlaying;
+            return HSPlayerStatePlaying;
         }else {
-            return HSRemotePlayerStatePause;
+            return HSPlayerStatePause;
         }
     }
+    
 }
-
 
 #pragma mark - 懒加载
 - (HSLocalPlayer *)localAudioTool {

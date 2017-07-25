@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+#define kLocalPlayerURLOrStateChangeNotification @"localPlayerURLOrStateChangeNotification"
+
 
 @interface HSLocalPlayer : NSObject
 

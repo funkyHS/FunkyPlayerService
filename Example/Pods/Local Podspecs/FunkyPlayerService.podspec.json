@@ -1,8 +1,8 @@
 {
   "name": "FunkyPlayerService",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "summary": "FunkyPlayerService",
-  "description": "TODO:FunkyPlayerService提供本地资源或远程资源的音频播放功能组件",
+  "description": "TODO:FunkyPlayerService提供本地资源或远程资源的音频播放功能组件，支付边听边缓存\"",
   "homepage": "https://github.com/funkyHS/FunkyPlayerService",
   "license": {
     "type": "MIT",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/funkyHS/FunkyPlayerService.git",
-    "tag": "0.1.0"
+    "tag": "0.1.4"
   },
   "platforms": {
     "ios": "8.0"
@@ -21,15 +21,23 @@
   "subspecs": [
     {
       "name": "LocalPlayer",
-      "source_files": "FunkyFMBase/Classes/LocalPlayer/**/*"
+      "source_files": "FunkyPlayerService/Classes/LocalPlayer/**/*"
     },
     {
       "name": "RemotePlayer",
-      "source_files": "FunkyFMBase/Classes/RemotePlayer/**/*"
+      "source_files": "FunkyPlayerService/Classes/RemotePlayer/**/*"
     },
     {
       "name": "PlayerService",
-      "source_files": "FunkyPlayerService/Classes/**/*"
+      "source_files": "FunkyPlayerService/Classes/PlayerService/**/*",
+      "dependencies": {
+        "FunkyPlayerService/LocalPlayer": [
+
+        ],
+        "FunkyPlayerService/RemotePlayer": [
+
+        ]
+      }
     }
   ]
 }
